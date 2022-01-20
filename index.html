@@ -1,31 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Launch countdown timer</title>
+		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+		<title>Frontend Mentor | Launch countdown timer</title>
 
-  We're launching soon
+		<link rel="stylesheet" href="app/css/style.css" />
 
-  Days
-  Hours
-  Minutes
-  Seconds
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+		</style>
+	</head>
+	<body>
+		<main class="container">
+			<header>
+				<h1>We're launching soon</h1>
+			</header>
+			<section class="countdown">
+				<div class="countdown__container" id="days">
+					<div class="countdown__box">
+						<strong>09</strong>
+					</div>
+					<span>Days</span>
+				</div>
+				<div class="countdown__container" id="hours">
+					<div class="countdown__box">
+						<strong>23</strong>
+					</div>
+					<span>Hours</span>
+				</div>
+				<div class="countdown__container" id="minutes">
+					<div class="countdown__box">
+						<strong>55</strong>
+					</div>
+					<span>Minutes</span>
+				</div>
+				<div class="countdown__container" id="seconds">
+					<div class="countdown__box">
+						<strong>41</strong>
+					</div>
+					<span>Seconds</span>
+				</div>
+			</section>
+			<footer>
+				<div class="social-links"></div>
+				<div class="attribution">
+					Challenge by
+					<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+						>Frontend Mentor</a
+					>. Coded by <a href="#">Your Name Here</a>.
+				</div>
+			</footer>
+		</main>
+	</body>
 </html>

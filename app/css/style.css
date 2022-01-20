@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+:root {
+	/* Primary */
+	--grayish-blue: hsl(237, 18%, 59%);
+	--soft-red: hsl(345, 95%, 68%);
+
+	/* Neutral */
+	--white: hsl(0, 0%, 100%);
+	--dark-desaturated-blue: hsl(236, 21%, 26%);
+	--very-dark-blue: hsl(235, 16%, 14%);
+	--very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+}
+
+html {
+	font-size: 100%;
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: 'Red Hat Text', sans-serif;
+	font-size: 0.875rem;
+	margin: 0px;
+	padding: 0px;
+}
+
+.container {
+	height: 100vh;
+}
+
+.container header {
+	height: 183px;
+}
+
+.container header h1 {
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	letter-spacing: 0.45rem;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	height: 100%;
+	margin: 0;
+}
+
+.container .countdown {
+	display: flex;
+	justify-content: center;
+	margin-top: 61px;
+}
+
+.container .countdown > * {
+	min-width: 70px;
+	min-height: 66px;
+	margin: 0px 8px;
+}
+
+.container .countdown .countdown__box {
+	font-size: 27px;
+	position: relative;
+	background-color: #000;
+	color: #fff;
+	/* padding-top allows you to have more control of your height for increasing or decreasing */
+	padding-top: 92%;
+}
+
+.container .countdown .countdown__box strong {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.container .countdown span {
+	font-size: 7px;
+	letter-spacing: 0.25rem;
+	display: block;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 15px;
+}
+
+@media (min-width: 415px) {
+	.container .countdown {
+		margin-top: 6.9375rem;
+	}
+
+	.container .countdown > * {
+		width: 148px;
+	}
+
+	.container .countdown .countdown__box {
+		font-size: 60px;
+		position: relative;
+		background-color: #000;
+		color: #fff;
+	}
+
+	.container .countdown span {
+		font-size: 0.8rem;
+		margin-top: 30px;
+	}
+
+	footer {
+		height: calc(799px - 491.16px);
+	}
+}
