@@ -31,7 +31,12 @@ body {
 }
 
 .container {
+	background-color: var(--very-dark-blue);
 	height: 100vh;
+	background: url('../images/pattern-hills.svg') no-repeat bottom right 20%,
+		url('../images/bg-stars.svg'),
+		linear-gradient(to bottom, var(--very-dark-blue), var(--very-dark-mostly-black-blue));
+	overflow: hidden;
 }
 
 .container header {
@@ -48,12 +53,155 @@ body {
 	align-items: end;
 	height: 100%;
 	margin: 0;
+	color: var(--white);
 }
 
-.container .countdown {
+#container {
 	display: flex;
 	justify-content: center;
-	margin-top: 61px;
+}
+
+.flip-clock-container {
+	display: flex; 
+    justify-content: center;
+    align-items: center;
+
+	font-size: 80px;
+	margin-top: 81px;
+    line-height: 0;
+}
+
+.flip-clock-container * {
+    user-select: none;
+    cursor: default;
+}
+
+.flip-clock {
+	margin: 0px 16px;
+}
+
+.digit {
+    position: relative;
+    height: 140px;
+    width: 148px;
+	box-shadow: 
+	var(--very-dark-mostly-black-blue) 0px 5px, 
+	var(--very-dark-mostly-black-blue) 0px 10px;
+}
+
+
+.digit::before,
+.digit::after {
+    position: absolute;
+    z-index: 0;
+
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+}
+
+.digit::before {
+    content: attr(data-digit-before);
+
+    bottom: 0;
+    align-items: flex-start;
+}
+
+.digit::after {
+    content: attr(data-digit-after);
+
+    top: 0;
+    align-items: flex-end;
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+
+    height: 50%;
+    width: 100%;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transform-origin: bottom;
+    -moz-transform-origin: bottom;
+    transform-origin: bottom;
+
+    -webkit-transform: rotateX(0);
+    -moz-transform: rotateX(0);
+    transform: rotateX(0);
+
+    -webkit-transition: transform .7s ease-in-out;
+    -moz-transition: transform .7s ease-in-out;
+    transition: transform .7s ease-in-out;
+}
+
+.card.flipped {
+    transform: rotateX(-180deg);
+}
+
+.card-face {
+    position: absolute;
+    
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.card-face-front {
+    align-items: flex-end;
+
+}
+
+.card-face-back {
+    align-items: flex-start;
+    transform: rotateX(-180deg);
+}
+
+.digit::before, 
+.digit::after,
+.card-face-front,
+.card-face-back {
+    background-color: white;
+    color: black;
+}
+
+.digit,
+.digit::before,
+.digit::after,
+.card,
+.card-face {
+    border-radius: 4px;
+}
+
+.digit::before, 
+.card-face-back {
+    background-color: var(--dark-desaturated-blue);
+    color: var(--soft-red);
+    border-top: 1px solid black;
+}
+
+.digit::after, 
+.card-face-front {
+    background-color: hsl(236, 21%, 20%);
+	color: var(--soft-red);
+    border-bottom: 1px solid black;
+}
+
+/* .container .countdown {
+	display: flex;
+	justify-content: center;
+	margin-top: 81px;
 }
 
 .container .countdown > * {
@@ -64,43 +212,37 @@ body {
 
 .container .countdown .countdown__box {
 	font-size: 27px;
+	background-color: var(--dark-desaturated-blue);
 	position: relative;
-	background-color: #000;
-	color: #fff;
-	/* padding-top allows you to have more control of your height for increasing or decreasing */
-	padding-top: 92%;
-}
+	/* padding-top allows you to have more control for increasing or decreasing of your height */
+	/* padding-top: 92%; */
+/* }
 
 .container .countdown .countdown__box strong {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-}
+	color: var(--soft-red);
+} */
 
-.container .countdown span {
-	font-size: 7px;
+.countdown span {
+	font-size: 13px;
 	letter-spacing: 0.25rem;
 	display: block;
 	text-align: center;
 	text-transform: uppercase;
-	margin-top: 15px;
-}
+	margin-top: 30px;
+	color: var(--grayish-blue);
+}  
 
-@media (min-width: 415px) {
-	.container .countdown {
-		margin-top: 6.9375rem;
-	}
-
+/* @media (min-width: 425px) {
 	.container .countdown > * {
 		width: 148px;
 	}
 
 	.container .countdown .countdown__box {
 		font-size: 60px;
-		position: relative;
-		background-color: #000;
-		color: #fff;
 	}
 
 	.container .countdown span {
@@ -111,4 +253,4 @@ body {
 	footer {
 		height: calc(799px - 491.16px);
 	}
-}
+} */

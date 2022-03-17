@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- displays site properly based on user's device -->
 
-		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="./app/images/favicon-32x32.png" />
 
 		<title>Frontend Mentor | Launch countdown timer</title>
 
@@ -27,33 +27,63 @@
 			<header>
 				<h1>We're launching soon</h1>
 			</header>
-			<section class="countdown">
-				<div class="countdown__container" id="days">
-					<div class="countdown__box">
-						<strong>09</strong>
+			<section id="container">
+				<div class="flip-clock-container">
+					<div class="flip-clock">
+						<div class="digit" data-digit-before="08" data-digit-after="07">
+							<!-- ::before -->
+							<div class="card" onclick="this.classList.toggle('flipped')">
+								<div class="card-face card-face-front">08</div>
+								<div class="card-face card-face-back">07</div>
+							</div>
+							<!-- ::after  -->
+						</div>
+						<div class="countdown">
+							<span>hours</span>
+						</div>
 					</div>
-					<span>Days</span>
-				</div>
-				<div class="countdown__container" id="hours">
-					<div class="countdown__box">
-						<strong>23</strong>
+					<div class="flip-clock">
+						<div class="digit" data-digit-before="23" data-digit-after="22">
+							<!-- ::before -->
+							<div class="card" onclick="this.classList.toggle('flipped')">
+								<div class="card-face card-face-front">23</div>
+								<div class="card-face card-face-back">22</div>
+							</div>
+							<!-- ::after  -->
+						</div>
+						<div class="countdown">
+							<span>minutes</span>
+						</div>
 					</div>
-					<span>Hours</span>
-				</div>
-				<div class="countdown__container" id="minutes">
-					<div class="countdown__box">
-						<strong>55</strong>
+					<div class="flip-clock">
+						<div class="digit" data-digit-before="55" data-digit-after="54">
+							<!-- ::before -->
+							<div class="card" onclick="this.classList.toggle('flipped')">
+								<div class="card-face card-face-front">55</div>
+								<div class="card-face card-face-back">54</div>
+							</div>
+							<!-- ::after  -->
+						</div>
+						<div class="countdown">
+							<span>seconds</span>
+						</div>
 					</div>
-					<span>Minutes</span>
-				</div>
-				<div class="countdown__container" id="seconds">
-					<div class="countdown__box">
-						<strong>41</strong>
+					<div class="flip-clock">
+						<div class="digit" data-digit-before="41" data-digit-after="40">
+							<!-- ::before -->
+							<div class="card" onclick="this.classList.toggle('flipped')">
+								<div class="card-face card-face-front">41</div>
+								<div class="card-face card-face-back">40</div>
+							</div>
+							<!-- ::after  -->
+						</div>
+						<div class="countdown">
+							<span>days</span>
+						</div>
 					</div>
-					<span>Seconds</span>
 				</div>
 			</section>
-			<footer>
+			<!-- <footer>
 				<div class="social-links"></div>
 				<div class="attribution">
 					Challenge by
@@ -61,7 +91,7 @@
 						>Frontend Mentor</a
 					>. Coded by <a href="#">Your Name Here</a>.
 				</div>
-			</footer>
+			</footer> -->
 		</main>
 	</body>
 </html>
