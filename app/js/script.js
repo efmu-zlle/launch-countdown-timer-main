@@ -1,8 +1,8 @@
 const digits = document.querySelectorAll('.flip-clock-container .flip-clock .digit');
 
-const setTimer = () => {
+function SetTimer() {
     const currentDate = new Date();
-    const futureDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 9, 16, 43, 41);
+    const futureDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 9, 17, 23, 41);
 
     const timeRemaining = futureDate.getTime() - currentDate.getTime();
 
@@ -19,26 +19,19 @@ const setTimer = () => {
     return [dayTimer, hourTimer, minuteTimer, secondTimer]
 };
 
+function FormatTimer(value) {
+  return value < 10 ? `0${value}` : value; 
+}
 
-const formatTimer = value => {
-    return value < 10 ? `0${value}` : value;
+function LoadTimer() {
+  const countdown = SetTimer();
+
+  digits.forEach((digit, index) => {
+    let card = digit.querySelector('.card');
+  });
 };
 
-const displayTimer = () => {
-    const timer = setTimer();
+setInterval(LoadTimer, 1000);
+LoadTimer();
 
-    digits.forEach((digit, index) => {
-        const card = digit.querySelector('.card');
-
-        digit.dataset.digitBefore = formatTimer(timer[index]);
-        digit.dataset.digitAfter = formatTimer(timer[index]);
-
-        card.children[0].textContent = formatTimer(timer[index]);
-        card.children[1].textContent = formatTimer(timer[index]);
-    });
-
-};
-
-let countdown = setInterval(displayTimer, 1000);
-displayTimer();
 
