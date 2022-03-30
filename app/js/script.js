@@ -2,7 +2,10 @@ const digits = document.querySelectorAll('.flip-clock-container .flip-clock .dig
 
 function SetTimer() {
     const currentDate = new Date();
-    const futureDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 9, 17, 50, 55);
+    const userHour = 17
+    const userMin = 50;
+    const userSec = 55;
+    const futureDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 8, userHour, userMin, userSec);
 
     const timeRemaining = futureDate.getTime() - currentDate.getTime();
 
@@ -15,12 +18,6 @@ function SetTimer() {
     const hourTimer = Math.floor((timeRemaining % oneDay) / oneHour);
     const minuteTimer = Math.floor((timeRemaining % oneHour) / oneMinute);
     const secondTimer = Math.floor((timeRemaining % oneMinute) / oneSecond);
-
-
-    // const Timer = {
-    //   beforeHtml : FormatTimer([dayTimer + 1, hourTimer + 1, minuteTimer + 1, secondTimer + 1]),
-    //   afterHtml: FormatTimer()
-    // };
 
     return [dayTimer, hourTimer, minuteTimer, secondTimer];
 };
@@ -67,7 +64,7 @@ function LoadTimer() {
 };
 
 function FormatTimer(value) {
-  return value < 10 ? (`0${value}`).slice(-2): `${value}`;
+  return value < 10 ? (`0${value}`).slice(-2): value;
 }
 
 setInterval(LoadTimer, 1000);
