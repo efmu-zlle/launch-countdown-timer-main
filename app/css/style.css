@@ -154,9 +154,9 @@ body {
 	-moz-transform: rotateX(0);
 	transform: rotateX(0);
 
-	-webkit-transition: transform .5s ease-in-out;
-	-moz-transition: transform .5s ease-in-out;
-	transition: transform .5s ease-in-out;
+	-webkit-transition: transform .9s ease-in-out;
+	-moz-transition: transform .9s ease-in-out;
+	transition: transform .9s ease-in-out;
 }
 
 .card.flipped {
