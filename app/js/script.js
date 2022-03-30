@@ -17,17 +17,13 @@ function SetTimer() {
     const secondTimer = Math.floor((timeRemaining % oneMinute) / oneSecond);
 
 
-    const Timer = {
-      beforeHtml : FormatTimer([dayTimer + 1, hourTimer + 1, minuteTimer + 1, secondTimer + 1]),
-      afterHtml: FormatTimer([dayTimer, hourTimer, minuteTimer, secondTimer])
-    };
+    // const Timer = {
+    //   beforeHtml : FormatTimer([dayTimer + 1, hourTimer + 1, minuteTimer + 1, secondTimer + 1]),
+    //   afterHtml: FormatTimer()
+    // };
 
-    return Timer;
+    return [dayTimer, hourTimer, minuteTimer, secondTimer];
 };
-
-function FormatTimer(array) {
-  return array.map(value => value < 10 ? `0${value}`: `${value}`);
-}
 
 
 function LoadTimer() {
@@ -38,25 +34,29 @@ function LoadTimer() {
     let cardFront = card.querySelector('.card-face-front');
     let cardBack = card.querySelector('.card-face-back');
 
+    const beforeHtml = countdown[index];
+    const afterHtml = +countdown[index] + 1;
+
 
     if (!digit.dataset.digitBefore) {
-      digit.dataset.digitBefore = countdown.beforeHtml[index];
+      digit.dataset.digitBefore = FormatTimer(afterHtml);
       cardFront.textContent = digit.dataset.digitBefore;
-      digit.dataset.digitAfter = countdown.afterHtml[index];
+      digit.dataset.digitAfter = FormatTimer(beforeHtml);
       cardBack.textContent = digit.dataset.digitAfter;
-    } else if (digit.dataset.digitBefore != countdown.beforeHtml[index]) {
-      card.addEventListener('transitionend', function () {
-        digit.dataset.digitBefore = countdown.beforeHtml[index];
+    } else if (digit.dataset.digitBefore != FormatTimer(afterHtml)) {
+      
+      card.addEventListener('transitionend', function() {
+        digit.dataset.digitBefore = FormatTimer(afterHtml);
         cardFront.textContent = digit.dataset.digitBefore;
 
-        let cardClone = card.cloneNode(true);
+        const cardClone = card.cloneNode(true);
         cardClone.classList.remove('flipped');
-        digit.replaceChild(cardClone, card);
+        card.replaceWith(cardClone);
         cardBack = cardClone.querySelector('.card-face-back');
 
-        digit.dataset.digitAfter = countdown.afterHtml[index];
+        digit.dataset.digitAfter = FormatTimer(beforeHtml);
         cardBack.textContent = digit.dataset.digitAfter;
-      }, { once: true });
+      });
 
       if (!card.classList.contains('flipped')) {
         card.classList.add('flipped');
@@ -65,6 +65,10 @@ function LoadTimer() {
 
   });
 };
+
+function FormatTimer(value) {
+  return value < 10 ? (`0${value}`).slice(-2): `${value}`;
+}
 
 setInterval(LoadTimer, 1000);
 LoadTimer();
