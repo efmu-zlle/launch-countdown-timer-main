@@ -5,7 +5,7 @@ const tempYear = tempDate.getFullYear();
 const tempMonth = tempDate.getMonth();
 const tempDay = tempDate.getDate();
 
-const futureDate = new Date(tempYear, tempMonth, tempDay + 8, 16, 43, 41);
+const futureDate = new Date(tempYear, tempMonth, tempDay + 6, 45, 10, 50);
 
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -42,28 +42,31 @@ function LoadTimer() {
     let cardFront = card.querySelector('.card-face-front');
     let cardBack = card.querySelector('.card-face-back');
 
-    const beforeHtml = countdown[index];
-    const afterHtml = +countdown[index] + 1;
+    const beforeHtml = +countdown[index] + 1;
+    const afterHtml = countdown[index];
 
 
     if (!digit.dataset.digitBefore) {
-      digit.dataset.digitBefore = FormatTimer(afterHtml);
+      digit.dataset.digitBefore = FormatTimer(beforeHtml);
       cardFront.textContent = digit.dataset.digitBefore;
-      digit.dataset.digitAfter = FormatTimer(beforeHtml);
+
+      digit.dataset.digitAfter = FormatTimer(afterHtml);
       cardBack.textContent = digit.dataset.digitAfter;
-    } else if (digit.dataset.digitBefore != FormatTimer(afterHtml)) {
+    } else if (digit.dataset.digitBefore != FormatTimer(beforeHtml)) {
       
       card.addEventListener('transitionend', () => {
-        digit.dataset.digitBefore = FormatTimer(afterHtml);
+        digit.dataset.digitBefore = FormatTimer(beforeHtml);
         cardFront.textContent = digit.dataset.digitBefore;
-
+        
         const cardClone = card.cloneNode(true);
         cardClone.classList.remove('flipped');
         card.replaceWith(cardClone);
         cardBack = cardClone.querySelector('.card-face-back');
+        cardFront = cardClone.querySelector('.card-face-front');
 
-        digit.dataset.digitAfter = FormatTimer(beforeHtml);
+        digit.dataset.digitAfter = FormatTimer(afterHtml);
         cardBack.textContent = digit.dataset.digitAfter;
+
       }, { once: true });
 
       if (!card.classList.contains('flipped')) {
