@@ -5,7 +5,7 @@ const tempYear = tempDate.getFullYear();
 const tempMonth = tempDate.getMonth();
 const tempDay = tempDate.getDate();
 
-const dateGiveaway = new Date(tempYear, tempMonth, tempDay + 8, 16, 43, 41);
+const futureDate = new Date(tempYear, tempMonth, tempDay + 8, 16, 43, 41);
 
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function() {
 function SetTimer() {
     const currentDate = new Date().getTime();
 
-    const timeRemaining = dateGiveaway - currentDate;
+    const timeRemaining = futureDate - currentDate;
 
     const oneDay = 24 * 60 * 60 * 1000;
     const oneHour = 60 * 60 * 1000;
