@@ -1,13 +1,21 @@
 const digits = document.querySelectorAll('.flip-clock-container .flip-clock .digit');
 
-function SetTimer() {
-    const currentDate = new Date();
-    const userHour = 17
-    const userMin = 50;
-    const userSec = 55;
-    const futureDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 8, userHour, userMin, userSec);
+const tempDate = new Date();
+const tempYear = tempDate.getFullYear();
+const tempMonth = tempDate.getMonth();
+const tempDay = tempDate.getDate();
 
-    const timeRemaining = futureDate.getTime() - currentDate.getTime();
+const dateGiveaway = new Date(tempYear, tempMonth, tempDay + 8, 16, 43, 41);
+
+
+window.addEventListener('DOMContentLoaded', function() {
+  LoadTimer();
+});
+
+function SetTimer() {
+    const currentDate = new Date().getTime();
+
+    const timeRemaining = dateGiveaway - currentDate;
 
     const oneDay = 24 * 60 * 60 * 1000;
     const oneHour = 60 * 60 * 1000;
@@ -22,6 +30,9 @@ function SetTimer() {
     return [dayTimer, hourTimer, minuteTimer, secondTimer];
 };
 
+function FormatTimer(value) {
+  return value >= 0 && value < 10 ? value = `0${value}` : value;
+}
 
 function LoadTimer() {
   const countdown = SetTimer();
@@ -42,7 +53,7 @@ function LoadTimer() {
       cardBack.textContent = digit.dataset.digitAfter;
     } else if (digit.dataset.digitBefore != FormatTimer(afterHtml)) {
       
-      card.addEventListener('transitionend', function() {
+      card.addEventListener('transitionend', () => {
         digit.dataset.digitBefore = FormatTimer(afterHtml);
         cardFront.textContent = digit.dataset.digitBefore;
 
@@ -53,7 +64,7 @@ function LoadTimer() {
 
         digit.dataset.digitAfter = FormatTimer(beforeHtml);
         cardBack.textContent = digit.dataset.digitAfter;
-      });
+      }, { once: true });
 
       if (!card.classList.contains('flipped')) {
         card.classList.add('flipped');
@@ -63,12 +74,11 @@ function LoadTimer() {
   });
 };
 
-function FormatTimer(value) {
-  return value < 10 ? (`0${value}`).slice(-2): value;
-}
+setInterval(() => {
+  LoadTimer();
+}, 1000);  
 
-setInterval(LoadTimer, 1000);
-LoadTimer();
+
 
 
 

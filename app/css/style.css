@@ -14,12 +14,16 @@
 
 html {
 	font-size: 100%;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
+	-webkit-box-sizing: inherit;
+  	-moz-box-sizing: inherit;
 	box-sizing: inherit;
 }
 
@@ -72,14 +76,21 @@ body {
 }
 
 .flip-clock-container * {
-    user-select: none;
+	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+
     cursor: default;
 }
 
 .flip-clock {
 	display: flex;
 	flex-direction: column;
-	perspective: 1000px;
+	
+	-webkit-perspective: 100px;
+	-moz-perspective: 100px;
+	perspective: 100px;
+	
 	margin: 0px 8px;
 }
 
@@ -132,20 +143,20 @@ body {
     width: 100%;
 
     -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 
-    -webkit-transform-origin: bottom;
-    -moz-transform-origin: bottom;
-    transform-origin: bottom;
+	-webkit-transform-origin: bottom;
+	-moz-transform-origin: bottom;
+	transform-origin: bottom;
 
-    -webkit-transform: rotateX(0);
-    -moz-transform: rotateX(0);
-    transform: rotateX(0);
+	-webkit-transform: rotateX(0);
+	-moz-transform: rotateX(0);
+	transform: rotateX(0);
 
-    -webkit-transition: transform .7s ease-in-out;
-    -moz-transition: transform .7s ease-in-out;
-    transition: transform .7s ease-in-out;
+	-webkit-transition: transform .5s ease-in-out;
+	-moz-transition: transform .5s ease-in-out;
+	transition: transform .5s ease-in-out;
 }
 
 .card.flipped {
@@ -162,7 +173,10 @@ body {
     height: 100%;
 
     overflow: hidden;
-    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 .card-face-front {
@@ -172,7 +186,9 @@ body {
 
 .card-face-back {
     align-items: flex-start;
-    transform: rotateX(-180deg);
+    -webkit-transform: rotateX(-180deg);
+	-moz-transform: rotateX(-180deg);
+	transform: rotateX(-180deg);
 }
 
 .digit::before, 
@@ -220,7 +236,10 @@ footer {
 }
 
 footer > * {
-	user-select: none;
+	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+	  
 	cursor: default;
 }
 
