@@ -1,202 +1,204 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
 
 :root {
-	/* Primary */
-	--grayish-blue: hsl(237, 18%, 59%);
-	--soft-red: hsl(345, 95%, 68%);
+  /* Primary */
+  --grayish-blue: hsl(237, 18%, 59%);
+  --soft-red: hsl(345, 95%, 68%);
 
-	/* Neutral */
-	--white: hsl(0, 0%, 100%);
-	--dark-desaturated-blue: hsl(236, 21%, 26%);
-	--very-dark-blue: hsl(235, 16%, 14%);
-	--very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+  /* Neutral */
+  --white: hsl(0, 0%, 100%);
+  --dark-desaturated-blue: hsl(236, 21%, 26%);
+  --very-dark-blue: hsl(235, 16%, 14%);
+  --very-dark-mostly-black-blue: hsl(234, 17%, 12%);
 }
 
 html {
-	font-size: 100%;
-	-webkit-box-sizing: border-box;
-  	-moz-box-sizing: border-box;
-  	box-sizing: border-box;
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-	-webkit-box-sizing: inherit;
-  	-moz-box-sizing: inherit;
-	box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-	font-family: 'Red Hat Text', sans-serif;
-	font-size: 0.875rem;
-	margin: 0px;
-	padding: 0px;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 0.875rem;
+  margin: 0px;
+  padding: 0px;
 }
 
 .container {
-	background-color: var(--very-dark-blue);
-	height: 100vh;
-	background: url('../images/pattern-hills.svg') no-repeat bottom right 20%,
-		url('../images/bg-stars.svg'),
-		linear-gradient(to bottom, var(--very-dark-blue), var(--very-dark-mostly-black-blue));
-	overflow: hidden;
+  background-color: var(--very-dark-blue);
+  height: 100vh;
+  background: url("../images/pattern-hills.svg") no-repeat bottom right 20%,
+    url("../images/bg-stars.svg"),
+    linear-gradient(
+      to bottom,
+      var(--very-dark-blue),
+      var(--very-dark-mostly-black-blue)
+    );
+  overflow: hidden;
 }
 
 .container header {
-	height: 183px;
+  height: 183px;
 }
 
 .container header h1 {
-	font-size: 1.25rem;
-	text-transform: uppercase;
-	letter-spacing: 0.45rem;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: end;
-	height: 100%;
-	margin: 0;
-	color: var(--white);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.45rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 100%;
+  margin: 0;
+  color: var(--white);
 }
 
 #container {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .flip-clock-container {
-	display: flex; 
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	font-size: clamp(1.6875rem, 7vw, 5rem);
-	margin-top: 81px;
-    line-height: 0;
+  font-size: clamp(1.6875rem, 7vw, 5rem);
+  margin-top: 81px;
+  line-height: 0;
 }
 
 .flip-clock-container * {
-	-webkit-user-select: none;
-  	-moz-user-select: none;
-  	user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 
-    cursor: default;
+  cursor: default;
 }
 
 .flip-clock {
-	display: flex;
-	flex-direction: column;
-	
-	-webkit-perspective: 100px;
-	-moz-perspective: 100px;
-	perspective: 100px;
-	
-	margin: 0px 8px;
+  display: flex;
+  flex-direction: column;
+
+  -webkit-perspective: 100px;
+  -moz-perspective: 100px;
+  perspective: 100px;
+
+  margin: 0px 8px;
 }
 
 .digit {
-    position: relative;
-    
-	min-height: 65px;
-    min-width: 70px;
+  position: relative;
 
-    height: calc(67vw - 365px);
-    width: calc(67vw - 370px);
+  min-height: 65px;
+  min-width: 70px;
 
-	box-shadow: 
-	var(--very-dark-mostly-black-blue) 0px 5px, 
-	var(--very-dark-mostly-black-blue) 0px 10px;
+  height: calc(67vw - 365px);
+  width: calc(67vw - 370px);
+
+  box-shadow: var(--very-dark-mostly-black-blue) 0px 5px,
+    var(--very-dark-mostly-black-blue) 0px 10px;
 }
 
 .digit::before,
 .digit::after {
-    position: absolute;
-    z-index: 0;
+  position: absolute;
+  z-index: 0;
 
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    width: 100%;
-    height: 50%;
-    overflow: hidden;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
 }
 
 .digit::before {
-    content: attr(data-digit-before);
+  content: attr(data-digit-before);
 
-    bottom: 0;
-    align-items: flex-start;
+  bottom: 0;
+  align-items: flex-start;
 }
 
 .digit::after {
-    content: attr(data-digit-after);
+  content: attr(data-digit-after);
 
-    top: 0;
-    align-items: flex-end;
+  top: 0;
+  align-items: flex-end;
 }
 
 .card {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 
-    height: 50%;
-    width: 100%;
+  height: 50%;
+  width: 100%;
 
-    -webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 
-	-webkit-transform-origin: bottom;
-	-moz-transform-origin: bottom;
-	transform-origin: bottom;
+  -webkit-transform-origin: bottom;
+  -moz-transform-origin: bottom;
+  transform-origin: bottom;
 
-	-webkit-transform: rotateX(0);
-	-moz-transform: rotateX(0);
-	transform: rotateX(0);
+  -webkit-transform: rotateX(0);
+  -moz-transform: rotateX(0);
+  transform: rotateX(0);
 
-	-webkit-transition: transform .3s ease-in-out;
-	-moz-transition: transform .3s ease-in-out;
-	transition: transform .3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out;
+  -moz-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .card.flipped {
-    transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
 }
 
 .card-face {
-    position: absolute;
-    
-    display: flex;
-    justify-content: center;
+  position: absolute;
 
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
 
-    overflow: hidden;
+  width: 100%;
+  height: 100%;
 
-    -webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	backface-visibility: hidden;
+  overflow: hidden;
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .card-face-front {
-    align-items: flex-end;
-
+  align-items: flex-end;
 }
 
 .card-face-back {
-    align-items: flex-start;
-    -webkit-transform: rotateX(-180deg);
-	-moz-transform: rotateX(-180deg);
-	transform: rotateX(-180deg);
+  align-items: flex-start;
+  -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
 }
 
-.digit::before, 
+.digit::before,
 .digit::after,
 .card-face-front,
 .card-face-back {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 .digit,
@@ -204,84 +206,82 @@ body {
 .digit::after,
 .card,
 .card-face {
-    border-radius: 6px;
+  border-radius: 6px;
 }
 
-.digit::before, 
+.digit::before,
 .card-face-back {
-    background-color: var(--dark-desaturated-blue);
-    color: var(--soft-red);
-    border-top: 1px solid var(--very-dark-blue);
+  background-color: var(--dark-desaturated-blue);
+  color: var(--soft-red);
+  border-top: 1px solid var(--very-dark-blue);
 }
 
-.digit::after, 
+.digit::after,
 .card-face-front {
-    background-color: hsl(236, 21%, 20%);
-	color: var(--soft-red);
-    border-bottom: 1px solid var(--very-dark-blue);
+  background-color: hsl(236, 21%, 20%);
+  color: var(--soft-red);
+  border-bottom: 1px solid var(--very-dark-blue);
 }
 
 .countdown span {
-	font-size: 5px;
-	letter-spacing: 0.25rem;
-	display: block;
-	text-align: center;
-	text-transform: uppercase;
-	margin-top: 15px;
-	color: var(--grayish-blue);
-} 
+  font-size: 5px;
+  letter-spacing: 0.25rem;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 15px;
+  color: var(--grayish-blue);
+}
 
 footer {
-	height: calc(100vh - 480px);
+  height: calc(100vh - 480px);
 }
 
 footer > * {
-	-webkit-user-select: none;
-  	-moz-user-select: none;
-  	user-select: none;
-	  
-	cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+  cursor: default;
 }
 
 .social-links {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 90%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 90%;
 }
 
 .social-links a {
-	height: 100%;
-	margin: 0 16px;
+  height: 100%;
+  margin: 0 16px;
 }
 
 .filter-color:hover {
-	cursor: pointer;
-	filter: invert(52%) sepia(76%) saturate(2176%) hue-rotate(311deg) brightness(103%) contrast(97%);
+  cursor: pointer;
+  filter: invert(52%) sepia(76%) saturate(2176%) hue-rotate(311deg)
+    brightness(103%) contrast(97%);
 }
 
 .attribution {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 95%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 95%;
 }
 
 @media screen and (min-width: 778px) {
+  .flip-clock {
+    margin: 0px 16px;
+  }
 
-	.flip-clock {
-		margin: 0px 16px;
-	}
+  .digit {
+    height: 140px;
+    width: 148px;
+  }
 
-	.digit {
-        height: 140px;
-	    width: 148px;
-    }
-
-	.countdown span {
-		font-size: 13px;
-		margin-top: 30px;
-	}
+  .countdown span {
+    font-size: 13px;
+    margin-top: 30px;
+  }
 }
-
-
